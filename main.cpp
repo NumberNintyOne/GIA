@@ -124,10 +124,19 @@ int main()
     int** A = CreateDynamicArray(h,w);
 
     //Inputting a, b, c and d
+    bool firstInput = false;
     do
     {
+        if(firstInput)
+        {
+            std::cout << "Ошибка: отрицательные числа не принимаются!" << std::endl;
+        }
         std::cin >> A[0][0];//a
         std::cin >> A[0][1];//b
+        if(!firstInput)
+        {
+            firstInput = true;
+        }
     } while ((A[0][0] < 0) || (A[0][1] < 0));
     std::cin >> A[1][0];//c
     std::cin >> A[1][1];//d

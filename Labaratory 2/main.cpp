@@ -1,12 +1,22 @@
 #include <iostream>
 #include <math.h>
+#include <bitset>
 
 int main() {
     short A = 0;
     unsigned short i = 1;
-    std::cout << "Введите значение переменной A:";
+    std::cout << "Введите значение число:";
     std::cin >> A;
+    std::cout << "Двоичное значение числа:" << std::endl;
+    std::cout << A << "='" << std::bitset<8>(A) << "'" << std::endl;
+    std::cout << "Введите номер бита двоичной записи числа A:";
     std::cin >> i;
+    iInput:
+    if (i < 0 || i > 8)
+    {
+        std::cout << "Ошибочный ввод значения номера бита!" << std::endl;
+        goto iInput;
+    }
     std::cout << "1)------------------------------------------------------------------" << std::endl;
     short bit = int((A >> (i - 1)) & 1);
     if (bit != 0)
@@ -14,8 +24,11 @@ int main() {
         unsigned int A;
         unsigned int B;
         unsigned int C;
+        std::cout << "Введите значение переменной A:";
         std::cin >> A;
+        std::cout << "Введите значение переменной B:";
         std::cin >> B;
+        std::cout << "Введите значение переменной C:";
         std::cin >> C;
 
         if ((A < B) && (B < C)) std::cout << static_cast<int>(C-B-A) << std::endl;

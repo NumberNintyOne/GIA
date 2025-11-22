@@ -141,10 +141,17 @@ int main()
     *pA = *pA * 2;
     *pB = *pB * 2;
     std::cout << a1 << "_" << b1 << std::endl;
+    int *c = new int;
+    *c = *pA;
+    *pA = *pB;
+    *pB = *c;
+    std::cout << a1 << "_" << b1 << std::endl;
     pA = nullptr;
     pB = nullptr;
+    c = nullptr;
     delete pA;
     delete pB;
+    delete c;
     
     return 0;
 }
